@@ -1,0 +1,165 @@
+.servicos {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.servicos h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #002147;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  width: 280px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #003366;
+}
+
+.card p {
+  font-size: 15px;
+  line-height: 1.4;
+  color: #333;
+}
+
+/* Tipografia geral */
+h1, h2 {
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+* {
+  font-family: 'Open Sans', Arial, sans-serif;
+}
+
+/* Bloco principal */
+.main {
+  background: linear-gradient(180deg, #cde3f5, #e0f4ff 80%);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+}
+
+.main p {
+  text-align: justify;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Cabeçalho */
+.header {
+  background-color: #002147;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: auto;
+}
+
+/* Rodapé */
+.footer {
+  background-color: #002147;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 14px;
+}
+
+/* Logo */
+.logo-container {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.logo {
+  height: 140px;
+  margin: 0;
+  padding: 0;
+  display: block;
+  transition: filter 0.3s ease-in-out;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 6px #00ffff);
+}
+
+/* Menu */
+.menu {
+  display: flex;
+  gap: 20px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 5px;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
+
+/* Toggle menu mobile */
+.menu-toggle {
+  display: none;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .menu.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+  }
+}
+
+#particulas-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  background: transparent;
+}

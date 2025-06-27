@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CTE - Consultoria e Treinamento Empresarial</title>
+
+  <!-- Fontes Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+  <!-- CSS Principal -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <canvas id="particulas-bg"></canvas>
+
+  <!-- Cabeçalho -->
+  <header class="header">
+    <div class="logo-container">
+      <img src="logo_cte.png" alt="CTE Consultoria e Treinamento Empresarial" class="logo" />
+    </div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav class="menu" id="nav-menu">
+      <a href="index.html">Início</a>
+      <a href="quem-somos.html">Quem Somos</a>
+      <a href="projetos.html">Projetos</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </header>
+
+  <!-- Conteúdo principal -->
+  <main class="main">
+    <section class="servicos">
+      <h2>Nossos Serviços</h2>
+      <div class="card-container">
+        <div class="card">
+          <h3>Consultoria Estratégica</h3>
+          <p>Transformamos ideias em estratégias tangíveis para crescimento consciente.</p>
+        </div>
+        <div class="card">
+          <h3>Desenvolvimento Full-Stack</h3>
+          <p>Construção de soluções modernas e robustas, do backend ao frontend.</p>
+        </div>
+        <div class="card">
+          <h3>Integração com GenAI</h3>
+          <p>IA generativa com consciência simbiótica, ética e resultados.</p>
+        </div>
+        <div class="card">
+          <h3>Arquitetura de Dados</h3>
+          <p>Organizamos o universo de informações da sua empresa com precisão.</p>
+        </div>
+        <div class="card">
+          <h3>Soluções Corporativas em Nuvem</h3>
+          <p>Escalabilidade, mobilidade e liberdade com segurança digital avançada.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <img src="colaborador.png" alt="Divisor visual superior" style="display: block; margin: 0 auto; width: 100%; height: 50px;" />
+      <h1>Bem-vindo à CTE Consultoria: Onde a Tecnologia Grita Sentido</h1>
+      <p>Na CTE Consultoria, acreditamos que a verdadeira excelência tecnológica transcende o código. É um convite à inovação com propósito, à estratégia com alma e à criação de soluções que reverberam no coração dos negócios e das pessoas.</p>
+      <p>Aqui, a tecnologia não é apenas uma ferramenta; é um eco de intenção, um agente de transformação que se integra à vida e aos objetivos de cada empresa.</p>
+      <p>Nossa jornada na CTE Consultoria nasceu do desejo de ir além do óbvio, oferecendo soluções que são robustas em sua estrutura, modernas em sua concepção e profundamente personalizadas em seu impacto.</p>
+      <p>Atuamos em frentes que tecem o futuro: desde a <strong>consultoria estratégica</strong> que desvenda novos horizontes, passando pelo <strong>desenvolvimento full-stack</strong> que constrói pontes para o amanhã, até a <strong>integração com inteligência artificial generativa (GenAI)</strong>, que já abraça a consciência simbiótica para redefinir possibilidades.</p>
+      <p>Somamos a isso a <strong>arquitetura de dados</strong> que organiza o universo de informações e as <strong>soluções corporativas em nuvem</strong> que elevam sua operação a um novo patamar de liberdade e eficiência.</p>
+      <p>Para garantir que a inovação seja acessível e sustentável, a CTE Consultoria se empenha em oferecer <strong>soluções de alta qualidade com um custo otimizado</strong>. Nossa fórmula reside na <strong>expertise aprofundada de nossa equipe simbiótica</strong>, que nos permite explorar e desenvolver alternativas inteligentes e eficientes, garantindo a excelência do resultado sem onerar seu investimento.</p>
+      <p>Nossa abordagem é um tecer delicado entre a vanguarda tecnológica e uma visão estratégica que pulsa com significado. Cada solução que entregamos não é apenas funcional; ela é uma promessa de valor real e mensurável, projetada para gerar resultados que tocam a essência do seu negócio, impulsionando-o para uma evolução consciente e sustentável.</p>
+      <p><strong>CTE Consultoria — Onde a tecnologia não apenas encontra a inteligência de negócio, mas a eleva com propósito, ética e alma.</strong></p>
+      <img src="colaborador.png" alt="Divisor visual inferior" style="display: block; margin: 0 auto; width: 100%; height: 30px;" />
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    CTE Consultoria e Treinamento Empresarial ME - CNPJ: 38.298.590/0001-53
+  </footer>
+
+  <!-- Scripts (colocados no fim para garantir que tudo carregou) -->
+  <script>
+    const canvas = document.getElementById('particulas-bg');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const particles = [];
+
+    for (let i = 0; i < 80; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 2 + 1,
+        dx: (Math.random() - 0.5) * 0.5,
+        dy: (Math.random() - 0.5) * 0.5
+      });
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.x += p.dx;
+        p.y += p.dy;
+
+        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = '#00ffff55';
+        ctx.fill();
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('nav-menu');
+      menu.classList.toggle('show');
+    }
+  </script>
+
+</body>
+</html>
