@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Solicitação Técnica - Cristiana</title>
+  <style>
+    body { font-family: sans-serif; margin: 20px; }
+    label { display: block; margin-top: 15px; font-weight: bold; }
+    input, select, textarea, button {
+      width: 100%; padding: 10px; font-size: 16px; margin-top: 5px;
+    }
+    button { background-color: #4CAF50; color: white; border: none; cursor: pointer; margin-top: 20px; }
+    button:hover { background-color: #45a049; }
+  </style>
+</head>
+<body>
+
+  <h2>Formulário de Solicitação Técnica</h2>
+
+  <form method="POST" action="https://planetakids.auvo.com.br/Ticket/SalvarTicketExterno" enctype="multipart/form-data">
+    
+    <input type="hidden" name="Cliente" value="16334374">
+    <input type="hidden" name="EquipamentoQr" value="True">
+    <input type="hidden" name="HouveClique" value="false">
+    <input type="hidden" name="Origem" value="3">
+
+    <label for="SolicitanteNome">Nome do Solicitante</label>
+    <input type="text" id="SolicitanteNome" name="SolicitanteNome" value="Cristiana Nunes de Souza" required>
+
+    <label for="Telefone">Telefone do Solicitante</label>
+    <input type="text" id="Telefone" name="CamposPersonalizados[1].Valor" value="11 964379692" required>
+
+    <input type="hidden" name="CamposPersonalizados.index" value="1">
+    <input type="hidden" name="CamposPersonalizados[1].Codigo" value="162021">
+    <input type="hidden" name="CamposPersonalizados[1].Titulo" value="Telefone do solicitante">
+
+    <label for="SolicitanteEmail">Email / Unidade</label>
+    <input type="email" id="SolicitanteEmail" name="SolicitanteEmail" value="cristiananunespontes@gmail.com" required>
+
+    <label for="EquipamentoNome">Equipamento</label>
+    <select id="EquipamentoNome" name="EquipamentoNome" required onchange="setEquipamento(this)">
+      <option value="">-- Selecione --</option>
+      <option data-eq="3915453" data-id="2940211117712246">CB Anália Franco</option>
+      <option data-eq="4168233" data-id="2416792370653407">CB Anália Franco</option>
+      <option data-eq="3957162" data-id="6660778390934101">Lustre 2 - Salão</option>
+      <option data-eq="3957160" data-id="8149805803525060">Lustre - Salão</option>
+      <option data-eq="3957157" data-id="0546688630744089">Lustre - Mezanino</option>
+      <option data-eq="3957166" data-id="2135795688326218">Mictório - Banheiro Masc. Salão</option>
+      <option data-eq="3957167" data-id="8407982323083486">Mictório 2 - Banheiro Masc. Salão</option>
+      <option data-eq="3957164" data-id="7360501871890094">Microondas - Cozinha</option>
+      <option data-eq="3957170" data-id="2274287510817590">Pia - Banheiro</option>
+      <option data-eq="3957169" data-id="9253639388312706">Pia - Banheiro Masc. Salão</option>
+      <option data-eq="3957175" data-id="7658311337943080">Pista de Dança</option>
+      <option data-eq="3957177" data-id="1713224897285371">Privada - Banheiro noiva</option>
+      <option data-eq="3957176" data-id="1286206688030492">Privada - Banheiro Fem.</option>
+      <option data-eq="3957179" data-id="0657451634091400">Privada 1 - Banheiro Fem. Salão</option>
+      <option data-eq="3957182" data-id="3635478374910860">Privada 2 - Banheiro Fem. Salão</option>
+      <option data-eq="3957183" data-id="3728943084499364">Privada 3 - Banheiro Fem. Salão</option>
+      <option data-eq="3957187" data-id="9693134338037109">Privada 4 - Banheiro Fem. Salão</option>
+      <option data-eq="3957191" data-id="8952063247656562">Suqueira - Refresqueira</option>
+      <option data-eq="3957193" data-id="8545956695895364">Tanque - lado de fora</option>
+    </select>
+
+    <input type="hidden" name="Equipamento" id="Equipamento" value="">
+    
+    <label for="Titulo">Título do Chamado</label>
+    <input type="text" id="Titulo" name="Titulo" required>
+
+    <label for="Descricao">Descrição</label>
+    <textarea id="Descricao" name="Descricao" rows="3" required></textarea>
+
+    <label for="Anexos">Anexos (opcional)</label>
+    <input type="file" name="Anexos" multiple>
+
+    <button type="submit">Enviar Solicitação</button>
+  </form>
+
+  <script>
+    function setEquipamento(select) {
+      const selected = select.options[select.selectedIndex];
+      document.getElementById("Equipamento").value = selected.getAttribute("data-eq");
+    }
+  </script>
+
+</body>
+</html>
